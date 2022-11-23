@@ -1,5 +1,8 @@
 site_name: Higgs-Charm
 site_url: https://example.com/
 nav:
-	- Home: 'index.md'
-	- Analysis: 'analysis.md'
+  - Home: 'index.md'
+  - Analysis: 'analysis.md'
+  - About: 'about.md'
+    
+theme: readthedocs

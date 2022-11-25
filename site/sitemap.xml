@@ -2,17 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://higgs-charm.docs.cern.ch/</loc>
-         <lastmod>2022-11-23</lastmod>
+         <lastmod>2022-11-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://higgs-charm.docs.cern.ch/about/</loc>
-         <lastmod>2022-11-23</lastmod>
+         <lastmod>2022-11-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://higgs-charm.docs.cern.ch/analysis/</loc>
-         <lastmod>2022-11-23</lastmod>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/hcnlo/challenges/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/hcnlo/introduction/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/GEN/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/HLT/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/MINIAOD/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/RAW/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/gridpack/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/process/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/setup-next-sim-steps/</loc>
+         <lastmod>2022-11-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/setup/</loc>
+         <lastmod>2022-11-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

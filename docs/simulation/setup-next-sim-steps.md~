@@ -1,0 +1,11 @@
+# Setting up the next simulation steps.
+
+If everything went well, you should now have a series of .LHE files in your storage directory.
+
+First, run the [setupProd.sh](setupProd.sh) script, providing a tagname for the folder that is about to be created as an arugment.
+
+For example:
+
+```
+source setupProd.sh HcToFourMuons
+```

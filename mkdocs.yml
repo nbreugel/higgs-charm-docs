@@ -15,9 +15,9 @@ nav:
       - 'RAW': 'simulation/RAW.md'
       - 'HLT': 'simulation/HLT.md'
       - 'MINIAOD': 'simulation/MINIAOD.md'
-  - HcNLO:
-      - 'Introduction': 'hcnlo/introduction.md'
-      - 'Challenges': 'hcnlo/challenges.md'
+  - 'Higgs + Jet':
+      - 'Leading order': 'higgsjet/leading-order.md'
+      - 'Next-to-leading order': 'higgsjet/next-to-leading-order.md'
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
@@ -25,3 +25,6 @@ extra_javascript:
 markdown_extensions:
     - mdx_math
     - attr_list
+
+extra_css:
+  - stylesheets/extra.css

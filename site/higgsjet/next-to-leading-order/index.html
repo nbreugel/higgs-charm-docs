@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Nordin Breugelmans">
-    <link rel="canonical" href="https://higgs-charm.docs.cern.ch/simulation/MINIAOD/">
+    <link rel="canonical" href="https://higgs-charm.docs.cern.ch/higgsjet/next-to-leading-order/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>MINIAOD - Higgs-Charm</title>
+    <title>Next-to-leading order - Higgs-Charm</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -76,55 +76,55 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Simulation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../setup/">Setting up the repository</a>
+    <a href="../../simulation/setup/">Setting up the repository</a>
 </li>
 
                         
                             
 <li >
-    <a href="../process/">Configuring your process</a>
+    <a href="../../simulation/process/">Configuring your process</a>
 </li>
 
                         
                             
 <li >
-    <a href="../gridpack/">Gridpack production</a>
+    <a href="../../simulation/gridpack/">Gridpack production</a>
 </li>
 
                         
                             
 <li >
-    <a href="../setup-next-sim-steps/">Setting up next simulation steps</a>
+    <a href="../../simulation/setup-next-sim-steps/">Setting up next simulation steps</a>
 </li>
 
                         
                             
 <li >
-    <a href="../GEN/">GEN</a>
+    <a href="../../simulation/GEN/">GEN</a>
 </li>
 
                         
                             
 <li >
-    <a href="../RAW/">RAW</a>
+    <a href="../../simulation/RAW/">RAW</a>
 </li>
 
                         
                             
 <li >
-    <a href="../HLT/">HLT</a>
+    <a href="../../simulation/HLT/">HLT</a>
 </li>
 
                         
                             
-<li class="active">
-    <a href="./">MINIAOD</a>
+<li >
+    <a href="../../simulation/MINIAOD/">MINIAOD</a>
 </li>
 
                         
@@ -133,19 +133,19 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Higgs + Jet <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../higgsjet/leading-order/">Leading order</a>
+    <a href="../leading-order/">Leading order</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../higgsjet/next-to-leading-order/">Next-to-leading order</a>
+<li class="active">
+    <a href="./">Next-to-leading order</a>
 </li>
 
                         
@@ -162,12 +162,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../HLT/">
+                        <a rel="prev" href="../leading-order/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="next" href="../../higgsjet/leading-order/">
+                    <li class="disabled">
+                        <a rel="next" >
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -181,22 +181,12 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#the-miniaod-step">The MINIAOD step</a></li>
+        <li class="first-level active"><a href="#next-to-leading-order-higgs-plus-jet">Next-to-leading order Higgs plus jet</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="the-miniaod-step">The MINIAOD step</h2>
-<p><strong>This step takes place in the <code>prod_&lt;YOURTAG&gt;/CMSSW_10_6_17_patch1/src</code> directory.</strong></p>
-<p>Finally, the RECO-AOD-MINIAOD need to be run in order to obtain a ROOT file ready for physics analysis. This step is included in the configuration file <a href="https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/MINIAOD_cfg.py">MINIAOD_cfg.py</a> and can be run over several files in parallel using the python script found under <a href="https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/submit_MINIAOD.py">submit_MINIAOD.py</a>. The input files for this step are the HLT (.root) files that were produced previously.</p>
-<p>For example:</p>
-<pre><code class="language-shell">python submit_MINIAOD.py \
---config=./MINIAOD_cfg.py \
---indir=/pnfs/iihe/cms/store/user/nbreugel/HcToFourMuons/HLT \
---outdir=/pnfs/iihe/cms/store/user/nbreugel/HcToFourMuons/MINIAOD \
---jobflavour=tomorrow \
---tag=Hc4Mu
-</code></pre></div>
+<h1 id="next-to-leading-order-higgs-plus-jet">Next-to-leading order Higgs plus jet</h1></div>
         
         
     </div>

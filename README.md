@@ -52,7 +52,7 @@ nav:
 and some other, less important stuff here
 ```
 
-Most likely, the only changes you will ever need to make will be to the `nav:` field. This reflects the structure of the pages of the website and contains the page name and the paths relative (to `docs/`) to the Markdown files which contains the body of the page.
+Most likely, the only changes you will ever need to make will be to the `nav:` field. This reflects the structure of the pages of the website and contains the page name and the paths (relative to `docs/`) to the Markdown files which contains the body of the page.
 
 The other directories have the following purpose:
 

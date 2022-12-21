@@ -7,14 +7,7 @@ theme:
 nav:
   - Home: 'index.md'
   - Simulation:
-      - 'Setting up the repository': 'simulation/setup.md'
-      - 'Configuring your process': 'simulation/process.md'
-      - 'Gridpack production': 'simulation/gridpack.md'
-      - 'Setting up next simulation steps': 'simulation/setup-next-sim-steps.md'
-      - 'GEN': 'simulation/GEN.md'
-      - 'RAW': 'simulation/RAW.md'
-      - 'HLT': 'simulation/HLT.md'
-      - 'MINIAOD': 'simulation/MINIAOD.md'
+      - 'Using the repository': 'simulation/repository.md'
   - 'Higgs + Jet':
       - 'Leading order': 'higgsjet/leading-order.md'
       - 'Next-to-leading order': 'higgsjet/next-to-leading-order.md'

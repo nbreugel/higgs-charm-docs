@@ -56,8 +56,7 @@ This time, the light flavours seem to have a significant contribution to the Hig
 
 If we now simulate every diagram contributing to \(pp\rightarrow H+\text{jet}\) (including the ones with a \(Hgg\) coupling), then we obtain the following results:
 
-
-Process (including antiquark contribution)| \(\sigma\)[pb] | \(\sigma/\sigma_\text{tot}\) | 
+Process (including antiquark contributihon)| \(\sigma\)[pb] | \(\sigma/\sigma_\text{tot}\) | 
 ----------------------------------------- | -------------- | ---------------------------- |
 \(pp \rightarrow H g\)                    | 10.62          | 71.32%                       |
 \(pp \rightarrow H b\)                    | 0.70           | 4.70%                        |

@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://higgs-charm.docs.cern.ch/simulation/finished-samples/</loc>
+         <lastmod>2022-12-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://higgs-charm.docs.cern.ch/simulation/repository/</loc>
          <lastmod>2022-12-21</lastmod>
          <changefreq>daily</changefreq>

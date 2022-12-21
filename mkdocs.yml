@@ -8,6 +8,7 @@ nav:
   - Home: 'index.md'
   - Simulation:
       - 'Using the repository': 'simulation/repository.md'
+      - 'Finished samples': 'simulation/finished-samples.md'
   - 'Higgs + Jet':
       - 'Leading order': 'higgsjet/leading-order.md'
       - 'Next-to-leading order': 'higgsjet/next-to-leading-order.md'

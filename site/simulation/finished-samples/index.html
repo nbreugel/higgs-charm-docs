@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Nordin Breugelmans">
-    <link rel="canonical" href="https://higgs-charm.docs.cern.ch/hcnlo/introduction/">
+    <link rel="canonical" href="https://higgs-charm.docs.cern.ch/simulation/finished-samples/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Introduction - Higgs-Charm</title>
+    <title>Finished samples - Higgs-Charm</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -76,19 +76,19 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Simulation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../simulation/repository/">Using the repository</a>
+    <a href="../repository/">Using the repository</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../simulation/finished-samples/">Finished samples</a>
+<li class="active">
+    <a href="./">Finished samples</a>
 </li>
 
                         
@@ -125,6 +125,16 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
+                    <li >
+                        <a rel="prev" href="../repository/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../higgsjet/leading-order/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
             </ul>
         </div>
     </div>
@@ -135,13 +145,54 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#introduction">Introduction</a></li>
+        <li class="first-level active"><a href="#finished-samples">Finished samples</a></li>
+            <li class="second-level"><a href="#introduction">Introduction</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="introduction">Introduction</h1>
-<p>Our goal is to produce a next-to-leading order (NLO) sample of <script type="math/tex">pp \rightarrow H +\space\text{jet}</script> events.</p></div>
+<h1 id="finished-samples">Finished samples</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This page contains information related to the private samples which were produced for the Higgs-Charm analysis.</p>
+<table>
+<thead>
+<tr>
+<th>Sample name</th>
+<th>Process</th>
+<th>#Events</th>
+<th>
+<script type="math/tex">\sigma</script>[pb]</th>
+<th>Precision</th>
+<th>Path</th>
+<th>Cards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HiggsPlusJet</td>
+<td>
+<script type="math/tex">p p \rightarrow H j,\space H\rightarrow ZZ \rightarrow 4\mu</script>
+</td>
+<td>10,000</td>
+<td>...</td>
+<td>LO</td>
+<td><code>/pnfs/iihe/cms/store/user/nbreugel/HiggsPlusJet</code></td>
+<td><a href="https://github.com/IIHE-Hc-Analysis/higgs-charm/tree/main/mcgeneration/old-cards/HiggsPlusJet">link</a></td>
+</tr>
+<tr>
+<td>HiggsPlusJetNLO</td>
+<td>
+<script type="math/tex">p p \rightarrow H j,\space H\rightarrow ZZ \rightarrow 4\mu</script>
+</td>
+<td>10,000</td>
+<td>...</td>
+<td>NLO</td>
+<td>WIP</td>
+<td>WIP</td>
+</tr>
+</tbody>
+</table></div>
         
         
     </div>

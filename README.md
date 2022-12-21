@@ -37,17 +37,17 @@ site_name: Higgs-Charm
 site_url: https://higgs-charm.docs.cern.ch/
 site_author: Nordin Breugelmans
 theme:
-	name: null
-	custom_dir: 'cinder'
+    name: null
+    custom_dir: 'cinder'
 nav:
-	- Home: 'index.md'
-	- Simulation:
-		'Using the repository': 'simulation/repository.md'
-		etc...
-	- 'Higgs + Jet':
-		- 'Leading order': 'higgsjet/leading-order.md'
-		etc...
-	- etc...
+    - Home: 'index.md'
+    - Simulation:
+        'Using the repository': 'simulation/repository.md'
+        etc...
+    - 'Higgs + Jet':
+        - 'Leading order': 'higgsjet/leading-order.md'
+        etc...
+    - etc...
 
 and some other, less important stuff here
 ```

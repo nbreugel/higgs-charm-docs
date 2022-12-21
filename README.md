@@ -2,7 +2,7 @@
 
 This repository holds the markdown files which are used by [MKDocs](https://www.mkdocs.org/) to produce the [Higgs-Charm documentation website](https://higgs-charm.docs.cern.ch/). The website is hosted by CERN on Nordin Breugelmans' EOS storage on lxplus.
 
-## Making changes to the repo
+## Making changes to the project
 
 First, you need to have a local [MKDocs](https://www.mkdocs.org/) installation. One way to do this is by executing the following command in your terminal:
 
@@ -59,6 +59,10 @@ The other directories have the following purpose:
 * `cinder/`: This contains the stylesheets etc. for the `cinder` [custom theme](https://github.com/chrissimpkins/cinder) for MKDocs.
 * `site/`: This contains the files which produce the website. This directory is created and updated automatically after running `mkdocs build`.
 * `docs/`: This is the main working directory for this project. It contains the Markdown files from which the website is built.
+
+## Creating a new build and pushing
+
+While you are making changes, you can run a local version of the website using `mkdocs serve`. This is a very useful feature since it automatically updates the local website each time you make some changes to a markdown file or to the `mkdocs.yml` file. This allows you to have your fully-themed page open in one window while editing the core Markdown document in another.
 
 If you only make changes to an already existing page (i.e. a Markdown file), all you need to do is simply save the file and then run `mkdocs build`. Afterwards, you can push your changes (there will also be changes in the `site/` directory which contains the latest build, make sure you push these as well!).
 

@@ -6,26 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://higgs-charm.docs.cern.ch/about/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://higgs-charm.docs.cern.ch/analysis/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://higgs-charm.docs.cern.ch/hcnlo/challenges/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://higgs-charm.docs.cern.ch/hcnlo/introduction/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://higgs-charm.docs.cern.ch/higgsjet/leading-order/</loc>
          <lastmod>2022-12-21</lastmod>
          <changefreq>daily</changefreq>

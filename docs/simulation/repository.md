@@ -1,6 +1,6 @@
 # Higgs-Charm repository guide
 
-## Introduction
+## 1. Introduction
 
 The Higgs-Charm repository for full-sim MC production can be cloned using the command
 
@@ -20,9 +20,10 @@ It is also possible to clone this repository into an empty directory by simply p
 git clone git@github.com:nbreugel/higgs-charm.git /path/to/clean/directory
 ```
 
-## Setting up your process
+## 2. Setting up your process
 
-### Edit the process configuration file
+### 2.1 Edit the process configuration file
+---
 Inside [process_cfg.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/process_cfg.py), you need to fill out all of the necessary fields outlined below to configure the process you want to generate:
 
 * **_tag_**: can be any name used to identify the process. It will be used as a directory name to save the MadGraph cards in [addons/cards/](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/addons/cards). It is important to remember this tag further along.
@@ -61,7 +62,8 @@ Additionally, there are fields related to the study of EFT operators. If these a
    The naming convention (when not defining "custom" as a reweighting strategy) is defined by the `translate_weight_name` helper function. It starts with "rwgt_", followed by listing all operators with their values. Decimal points are replaced by "p" and minus signs by "min".
 
 
-### Create MadGraph cards for your process
+### 2.2 Create MadGraph cards for your process
+---
 The [prepare_process.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/prepare_process.py) script will read out the configuration from the [process_cfg.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/process_cfg.py) file and construct the following cards in `addons/cards/<tag>`:
 > * run_card.dat<br/>
 > * proc_card.dat<br/>
@@ -76,46 +78,56 @@ python prepare_process.py
 
 This will also create a copy of [submit_gridpack_template.sh](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/submit_gridpack_template.sh), which will be called `submit_gridpack_T2B.sh` and for which the chosen `tag` is correctly inserted in the script.
 
-### Clone genproductions
-*You only need to run this step once. If you have already cloned genproductions, proceed to [the next step](#14-move-cards-to-madgraph-working-directory)* 
+### 2.3 Clone genproductions
+---
+!!! note
+	You only need to run this step once. If you have already cloned genproductions, proceed to the next step: [Move cards to MadGraph working directory](#24-move-cards-to-madgraph-working-directory)
 
 For the production of CMS samples, we need the pull the [cms-sw/genproductions](https://github.com/cms-sw/genproductions.git) package from github. To this end, run:
 ```
 source setup_production.sh
 ```
-This will create a new directory called "genproductions" alongside your current mcgeneration repository and it will copy all the scripts, models, cards that you need to run your sample production. **Since the cards have already been moved to the appropriate directory, you can now proceed to the next page.**
+This will create a new directory called "genproductions" alongside your current mcgeneration repository and it will copy all the scripts, models, cards that you need to run your sample production. 
+<div class="alert alert-warning" role="alert"> Since the cards have already been moved to the appropriate directory, you can now proceed to <a href="#3-producing-a-gridpack-and-launching-lhe-production"> 3. Producing a gridpack and launching LHE production. </a> </div>
 
-### Move cards to MadGraph working directory
+### 2.4 Move cards to MadGraph working directory
+---
 After having produced the MadGraph cards, you can move the cards to the `genproductions/bin/MadGraph5_aMCatNLO/` directory using the command
 ```shell
 sh move_cards.sh <TAG>
 ```
-Make sure that you use exactly the same `tag` as the one you specified in the previous step. Afterwards, you are automatically directed to the `genproductions/bin/MadGraph5_aMCatNLO/` directory.
 
-## Producing a gridpack and launching LHE production
-**NOTE: All of the following steps take place within the `genproductions/bin/MadGraph5_aMCatNLO/` directory!**
+<div class="alert alert-warning" role="alert"> Make sure that you use exactly the same tag as the one you specified in the previous step. </div>
+Afterwards, you are automatically directed to the `genproductions/bin/MadGraph5_aMCatNLO/` directory.
 
-Before running the following steps, make sure you have your GRID proxy enabled and exported as a variable so the CMSSW scripts can retrieve it. This can be done by running
-```shell
-source setup_proxy.sh
-```
-Additionally, if you are interested in using the five-flavour scheme where the b and c masses (but not the Yukawa couplings) are set to zero in the `no_masses` restriction card of the `loop_sm` model, please run the following command:
-```shell
-source loopsm_5F_patch.sh
-```
-This script adds search and replace commands inside the `gridpack_generation.sh` script which alter the appropriate restriction card in the freshly installed `loop_sm` model during the production of the gridpack.
+## 3. Producing a gridpack and launching LHE production
+!!! note
+	All of the following steps take place within the `genproductions/bin/MadGraph5_aMCatNLO/` directory!
+	
+!!! note
+	If you are using the `loop_sm` model and are interested in using the five-flavour scheme where the b and c masses (but not the Yukawa couplings) are set to zero in the `no_masses` restriction card, please run the following command: `source loopsm_5F_patch.sh`
+	
+	This script adds search and replace commands inside the `gridpack_generation.sh` script which alter the appropriate restriction card in the freshly installed `loop_sm` model during the production of the gridpack.
+	
+!!! warning
+	Before running the following steps, make sure you have your GRID proxy enabled and exported as a variable so the CMSSW scripts can retrieve it. This can be done by running
+	```
+	source setup_proxy.sh
+	```
 
-### Production of your CMS gridpack
+### 3.1 Production of your CMS gridpack
+---
 Gridpacks can be produced by running:
 ```shell
 python ProduceGridpack_condor.py
 ```
 There are two optional arguments, namely the SCRAM architecture (`--scram_arch`) and the CMSSW version (`--cmssw_version`) that are to be used for the gridpack generation. If these are not given, by default the script takes `slc7_amd64_gcc700` and `CMSSW_10_2_18`.
 The above command will create an HTCondor submission script. This can be submitted in order to launch the gridpack creation job. After the job has finished, you should see a tarball in your directory, which holds your gridpack.
+!!! note
+	Gridpack generation can take several minutes up to several hours, depending on your process and the amount of weights/diagrams that need to be saved.
 
-**_NOTE: gridpack generation can take several minutes up to several hours, depending on your process and the amount of weights/diagrams that need to be saved._**
-
-### Launch production of LHE files
+### 3.2 Launch production of LHE files
+---
 Within the `genproductions/bin/MadGraph5_aMCatNLO/` folder, you will see the [ProduceLHE_condor.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/ProduceLHE_condor.py) file. It will create the needed scripts and condor submission configurations to run a parallel production or a chosen number of Les Houches event files (LHE).
 It contains 6 configurable parameters:
 
@@ -146,11 +158,12 @@ condor_q
 ```
 Once all jobs have finished, the output is stored in the `outdir` in the form of a number of files named "`cmsgrid_final_1.lhe` with increasing file numbers.
 
-## Setting up the next simulation steps
-
+## 4. From LHE to AOD
+### 4.1 Setting up the next simulation steps
+---
 If everything went well, you should now have a series of .LHE files in your storage directory. The following steps will deal with the showering and decays of your events, as well as the interactions with the CMS detector and the simulation of the detector response.
 
-First, run the [setupProd.sh](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/setupProd.sh) script, providing a tagname for the folder that is about to be created as an argument.
+First, navigate to the `LHEtoAOD` directory and run the [setupProd.sh](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/setupProd.sh) script, providing a tagname for the folder that is about to be created as an argument.
 
 For example:
 
@@ -158,8 +171,10 @@ For example:
 source setupProd.sh HcToFourMuons
 ```
 
-## The GEN step
-**This step takes place in the `prod_<YOURTAG>/CMSSW_10_6_17_patch1/src` directory.**
+### 4.2 The GEN step
+---
+
+<div class="alert alert-warning" role="alert">This step takes place in the `prod_<YOURTAG>/CMSSW_10_6_17_patch1/src` directory.</div>
 
 The first step is called the generator step or GEN step for short. It uses the previously generated LHE files as input, and outputs a collection of ROOT files containing the showered particles. 
 
@@ -198,8 +213,9 @@ export X509_USER_PROXY=$(voms-proxy-info -path)
 echo $X509_USER_PROXY
 ```
 
-## The RAW step
-**This step takes place in the `prod_<YOURTAG>/CMSSW_10_6_17_patch1/src` directory.**
+### 4.3 The RAW step
+---
+<div class="alert alert-warning" role="alert">This step takes place in the `prod_<YOURTAG>/CMSSW_10_6_17_patch1/src` directory.</div>
 
 Following the GEN step, one has the run the SIM-DIGI-RAW steps. These are already included in the configuration file [RAW_cfg.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/RAW_cfg.py). A submission script has been prepared to run in parallel on several LHE files via HTCondor. This script can be found under [submit_RAW.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/submit_RAW.py).
 
@@ -224,8 +240,9 @@ python submit_RAW.py \
 
 Make sure your grid proxy is valid before submitting the jobs to HTCondor. This step can take quite a while to run, so a `jobflavour=nextweek` could be necessary.
 
-## The HLT step
-**This step takes place in the `prod_<YOURTAG>/CMSSW_10_2_16_UL/src` directory.**
+### 4.4 The HLT step
+---
+<div class="alert alert-warning" role="alert">This step takes place in the `prod_<YOURTAG>/CMSSW_10_2_16_UL/src` directory.</div>
 
 Similar to the previous steps, the HLT step is included in the configuration file [HLT_cfg.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/HLT_cfg.py) and can be run in parallel using the python script found under [submit_HLT.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/submit_HLT.py). Make sure you are in the appropriate CMSSW environment (`CMSSW_10_2_16_UL`) before running this script. The input files for this step are the HLT (.root) files that were produced previously.
 
@@ -242,8 +259,9 @@ python submit_HLT.py \
 
 Make sure your grid proxy is valid before submitting the jobs to HTCondor.
 
-## The MINIAOD step
-**This step takes place in the `prod_<YOURTAG>/CMSSW_10_6_17_patch1/src` directory.**
+### 4.5 The MINIAOD step
+---
+<div class="alert alert-warning" role="alert">This step takes place in the `prod_<YOURTAG>/CMSSW_10_6_17_patch1/src` directory.</div>
 
 Finally, the RECO-AOD-MINIAOD need to be run in order to obtain a ROOT file ready for physics analysis. This step is included in the configuration file [MINIAOD_cfg.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/MINIAOD_cfg.py) and can be run over several files in parallel using the python script found under [submit_MINIAOD.py](https://github.com/nbreugel/higgs-charm/blob/main/mcgeneration/LHEtoAOD/submit_MINIAOD.py). The input files for this step are the HLT (.root) files that were produced previously.
 
